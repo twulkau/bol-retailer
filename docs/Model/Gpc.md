@@ -1,0 +1,10 @@
+# Gpc
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**chunk_id** | **string** | The identifier of the current GPC/Product Classification. | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
