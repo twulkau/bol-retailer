@@ -210,11 +210,11 @@ class OrderFulfilment implements ModelInterface, ArrayAccess
     public function getTimeFrameTypeAllowableValues()
     {
         return [
-            self::TIME_FRAME_TYPE_REGULAR
-            self::TIME_FRAME_TYPE_EVENING
-            self::TIME_FRAME_TYPE_APPOINTMENT
-            self::TIME_FRAME_TYPE_SAMEDAY
-            self::TIME_FRAME_TYPE_SUNDAY
+            self::TIME_FRAME_TYPE_REGULAR,
+            self::TIME_FRAME_TYPE_EVENING,
+            self::TIME_FRAME_TYPE_APPOINTMENT,
+            self::TIME_FRAME_TYPE_SAMEDAY,
+            self::TIME_FRAME_TYPE_SUNDAY,
         ];
     }
 
