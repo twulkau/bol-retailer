@@ -204,25 +204,25 @@ class Fulfilment implements ModelInterface, ArrayAccess
     public function getDeliveryCodeAllowableValues()
     {
         return [
-            self::DELIVERY_CODE__24UURS_23
-            self::DELIVERY_CODE__24UURS_22
-            self::DELIVERY_CODE__24UURS_21
-            self::DELIVERY_CODE__24UURS_20
-            self::DELIVERY_CODE__24UURS_19
-            self::DELIVERY_CODE__24UURS_18
-            self::DELIVERY_CODE__24UURS_17
-            self::DELIVERY_CODE__24UURS_16
-            self::DELIVERY_CODE__24UURS_15
-            self::DELIVERY_CODE__24UURS_14
-            self::DELIVERY_CODE__24UURS_13
-            self::DELIVERY_CODE__24UURS_12
-            self::DELIVERY_CODE__1_2D
-            self::DELIVERY_CODE__2_3D
-            self::DELIVERY_CODE__3_5D
-            self::DELIVERY_CODE__4_8D
-            self::DELIVERY_CODE__1_8D
-            self::DELIVERY_CODE_MIJN_LEVERBELOFTE
-            self::DELIVERY_CODE_VVB
+            self::DELIVERY_CODE__24UURS_23,
+            self::DELIVERY_CODE__24UURS_22,
+            self::DELIVERY_CODE__24UURS_21,
+            self::DELIVERY_CODE__24UURS_20,
+            self::DELIVERY_CODE__24UURS_19,
+            self::DELIVERY_CODE__24UURS_18,
+            self::DELIVERY_CODE__24UURS_17,
+            self::DELIVERY_CODE__24UURS_16,
+            self::DELIVERY_CODE__24UURS_15,
+            self::DELIVERY_CODE__24UURS_14,
+            self::DELIVERY_CODE__24UURS_13,
+            self::DELIVERY_CODE__24UURS_12,
+            self::DELIVERY_CODE__1_2D,
+            self::DELIVERY_CODE__2_3D,
+            self::DELIVERY_CODE__3_5D,
+            self::DELIVERY_CODE__4_8D,
+            self::DELIVERY_CODE__1_8D,
+            self::DELIVERY_CODE_MIJN_LEVERBELOFTE,
+            self::DELIVERY_CODE_VVB,
         ];
     }
 
