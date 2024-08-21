@@ -178,13 +178,13 @@ class ProductListResponse implements ModelInterface, ArrayAccess
     public function getSortAllowableValues()
     {
         return [
-            self::SORT_RELEVANCE
-            self::SORT_POPULARITY
-            self::SORT_PRICE_ASC
-            self::SORT_PRICE_DESC
-            self::SORT_RELEASE_DATE
-            self::SORT_RATING
-            self::SORT_WISHLIST
+            self::SORT_RELEVANCE,
+            self::SORT_POPULARITY,
+            self::SORT_PRICE_ASC,
+            self::SORT_PRICE_DESC,
+            self::SORT_RELEASE_DATE,
+            self::SORT_RATING,
+            self::SORT_WISHLIST,
         ];
     }
 
