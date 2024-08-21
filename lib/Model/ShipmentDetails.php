@@ -257,10 +257,10 @@ class ShipmentDetails implements ModelInterface, ArrayAccess
     public function getLanguageAllowableValues()
     {
         return [
-            self::LANGUAGE_NL
-            self::LANGUAGE_NL_BE
-            self::LANGUAGE_FR
-            self::LANGUAGE_FR_BE
+            self::LANGUAGE_NL,
+            self::LANGUAGE_NL_BE,
+            self::LANGUAGE_FR,
+            self::LANGUAGE_FR_BE,
         ];
     }
 
