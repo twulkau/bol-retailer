@@ -177,12 +177,12 @@ class CreateDeliveryInfo implements ModelInterface, ArrayAccess
     public function getTransporterCodeAllowableValues()
     {
         return [
-            self::TRANSPORTER_CODE_POSTNL
-            self::TRANSPORTER_CODE_DHL
-            self::TRANSPORTER_CODE_DPD
-            self::TRANSPORTER_CODE_GLS
-            self::TRANSPORTER_CODE_UPS
-            self::TRANSPORTER_CODE_OTHER
+            self::TRANSPORTER_CODE_POSTNL,
+            self::TRANSPORTER_CODE_DHL,
+            self::TRANSPORTER_CODE_DPD,
+            self::TRANSPORTER_CODE_GLS,
+            self::TRANSPORTER_CODE_UPS,
+            self::TRANSPORTER_CODE_OTHER,
         ];
     }
 
