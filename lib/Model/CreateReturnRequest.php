@@ -181,11 +181,11 @@ class CreateReturnRequest implements ModelInterface, ArrayAccess
     public function getHandlingResultAllowableValues()
     {
         return [
-            self::HANDLING_RESULT_RETURN_RECEIVED
-            self::HANDLING_RESULT_EXCHANGE_PRODUCT
-            self::HANDLING_RESULT_RETURN_DOES_NOT_MEET_CONDITIONS
-            self::HANDLING_RESULT_REPAIR_PRODUCT
-            self::HANDLING_RESULT_CUSTOMER_KEEPS_PRODUCT_PAID
+            self::HANDLING_RESULT_RETURN_RECEIVED,
+            self::HANDLING_RESULT_EXCHANGE_PRODUCT,
+            self::HANDLING_RESULT_RETURN_DOES_NOT_MEET_CONDITIONS,
+            self::HANDLING_RESULT_REPAIR_PRODUCT,
+            self::HANDLING_RESULT_CUSTOMER_KEEPS_PRODUCT_PAID,
         ];
     }
 
