@@ -193,13 +193,13 @@ class PickupAppointment implements ModelInterface, ArrayAccess
     public function getCancellationReasonAllowableValues()
     {
         return [
-            self::CANCELLATION_REASON_UNKNOWN_ADDRESS
-            self::CANCELLATION_REASON_NOT_READY
-            self::CANCELLATION_REASON_NO_LABEL
-            self::CANCELLATION_REASON_WRONG_PACKAGE
-            self::CANCELLATION_REASON_NOT_AT_HOME
-            self::CANCELLATION_REASON_OTHER_REASON
-            self::CANCELLATION_REASON_REQUEST_FROM_RETAILER
+            self::CANCELLATION_REASON_UNKNOWN_ADDRESS,
+            self::CANCELLATION_REASON_NOT_READY,
+            self::CANCELLATION_REASON_NO_LABEL,
+            self::CANCELLATION_REASON_WRONG_PACKAGE,
+            self::CANCELLATION_REASON_NOT_AT_HOME,
+            self::CANCELLATION_REASON_OTHER_REASON,
+            self::CANCELLATION_REASON_REQUEST_FROM_RETAILER,
         ];
     }
 
