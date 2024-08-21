@@ -183,8 +183,8 @@ class HandoverDetails implements ModelInterface, ArrayAccess
     public function getCollectionMethodAllowableValues()
     {
         return [
-            self::COLLECTION_METHOD_DROP_OFF
-            self::COLLECTION_METHOD_PICK_UP
+            self::COLLECTION_METHOD_DROP_OFF,
+            self::COLLECTION_METHOD_PICK_UP,
         ];
     }
 
