@@ -7,6 +7,5 @@ Name | Type | Description | Notes
 **transporter_code** | **string** | The transporter that will pickup this replenishment. | 
 **destination_warehouse** | [**\Bol\Retailer\Model\DestinationWarehouse**](DestinationWarehouse.md) |  | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

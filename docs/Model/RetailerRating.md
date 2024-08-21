@@ -9,6 +9,5 @@ Name | Type | Description | Notes
 **shipping_rating** | **double** | Shipping rating of the retailer. | [optional] 
 **service_rating** | **double** | Service rating of the retailer. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

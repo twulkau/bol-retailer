@@ -1,14 +1,13 @@
 # Bol\Retailer\TransportsApi
 
-All URIs are relative to *https://api.bol.com*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addTransportInformationByTransportId**](TransportsApi.md#addTransportInformationByTransportId) | **PUT** /retailer/transports/{transport-id} | Add transport information by transport id
-
+[**addTransportInformationByTransportId**](TransportsApi.md#addtransportinformationbytransportid) | **PUT** /retailer/transports/{transport-id} | Add transport information by transport id
 
 # **addTransportInformationByTransportId**
-> \Bol\Retailer\Model\ProcessStatus addTransportInformationByTransportId($transport_id, $body)
+> \Bol\Retailer\Model\ProcessStatus addTransportInformationByTransportId($body, $transport_id)
 
 Add transport information by transport id
 
@@ -18,17 +17,22 @@ Add information to an existing transport. The transport id is part of the shipme
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\TransportsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
+$body = new \Bol\Retailer\Model\ChangeTransportRequest(); // \Bol\Retailer\Model\ChangeTransportRequest | 
 $transport_id = "transport_id_example"; // string | The transport id.
-$body = new \Bol\Retailer\Model\ChangeTransportRequest(); // \Bol\Retailer\Model\ChangeTransportRequest | The change transport requested by the user.
 
 try {
-    $result = $apiInstance->addTransportInformationByTransportId($transport_id, $body);
+    $result = $apiInstance->addTransportInformationByTransportId($body, $transport_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TransportsApi->addTransportInformationByTransportId: ', $e->getMessage(), PHP_EOL;
@@ -40,8 +44,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Bol\Retailer\Model\ChangeTransportRequest**](../Model/ChangeTransportRequest.md)|  |
  **transport_id** | **string**| The transport id. |
- **body** | [**\Bol\Retailer\Model\ChangeTransportRequest**](../Model/ChangeTransportRequest.md)| The change transport requested by the user. | [optional]
 
 ### Return type
 
@@ -49,12 +53,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/vnd.retailer.v9+json
- - **Accept**: application/vnd.retailer.v9+json
+ - **Content-Type**: application/vnd.retailer.v10+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

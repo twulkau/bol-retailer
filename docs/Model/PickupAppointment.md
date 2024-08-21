@@ -9,6 +9,5 @@ Name | Type | Description | Notes
 **pickup_date_time** | [**\DateTime**](\DateTime.md) | The date and time in ISO 8601 format when this replenishment was picked up by the transporter. | [optional] 
 **cancellation_reason** | **string** | In case of a pickup cancellation this field indicates the reason for cancelling this pickup. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

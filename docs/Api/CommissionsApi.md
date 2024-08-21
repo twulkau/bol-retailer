@@ -1,12 +1,12 @@
 # Bol\Retailer\CommissionsApi
 
-All URIs are relative to *https://api.bol.com*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCommission**](CommissionsApi.md#getCommission) | **GET** /retailer/commission/{ean} | Get all commissions and reductions by EAN per single EAN
-[**getCommissions**](CommissionsApi.md#getCommissions) | **POST** /retailer/commission | Get all commissions and reductions by EAN in bulk
-
+[**getCommission**](CommissionsApi.md#getcommission) | **GET** /retailer/commission/{ean} | Get all commissions and reductions by EAN per single EAN
+[**getCommissionRates**](CommissionsApi.md#getcommissionrates) | **POST** /retailer/commissions | Get a list of commissions by EAN (BETA)
+[**getCommissions**](CommissionsApi.md#getcommissions) | **POST** /retailer/commission | Get all commissions and reductions by EAN in bulk
 
 # **getCommission**
 > \Bol\Retailer\Model\Commission getCommission($ean, $unit_price, $condition)
@@ -19,15 +19,20 @@ Commissions can be filtered by condition, which defaults to NEW. We will calcula
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\CommissionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $ean = "ean_example"; // string | The EAN number associated with this product.
-$unit_price = 8.14; // float | The price of the product with a period as a decimal separator. The price should always have two decimals precision.
-$condition = "NEW"; // string | The condition of the offer.
+$unit_price = 1.2; // float | The price of the product with a period as a decimal separator. The price should always have two decimals precision.
+$condition = "condition_example"; // string | The condition of the offer.
 
 try {
     $result = $apiInstance->getCommission($ean, $unit_price, $condition);
@@ -44,7 +49,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ean** | **string**| The EAN number associated with this product. |
  **unit_price** | **float**| The price of the product with a period as a decimal separator. The price should always have two decimals precision. |
- **condition** | **string**| The condition of the offer. | [optional] [default to NEW]
+ **condition** | **string**| The condition of the offer. | [optional]
 
 ### Return type
 
@@ -52,12 +57,66 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.retailer.v9+json
+ - **Accept**: application/vnd.retailer.v10+json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getCommissionRates**
+> \Bol\Retailer\Model\BulkCommissionRatesMultiStatusResponse getCommissionRates($body)
+
+Get a list of commissions by EAN (BETA)
+
+Gets a list of all commissions using EAN.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Bol\Retailer\Api\CommissionsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$body = new \Bol\Retailer\Model\CommissionProducts(); // \Bol\Retailer\Model\CommissionProducts | 
+
+try {
+    $result = $apiInstance->getCommissionRates($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CommissionsApi->getCommissionRates: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Bol\Retailer\Model\CommissionProducts**](../Model/CommissionProducts.md)|  |
+
+### Return type
+
+[**\Bol\Retailer\Model\BulkCommissionRatesMultiStatusResponse**](../Model/BulkCommissionRatesMultiStatusResponse.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/vnd.retailer.v10+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -72,11 +131,16 @@ Gets all commissions and possible reductions by EAN, price, and optionally condi
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\CommissionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Bol\Retailer\Model\BulkCommissionRequest(); // \Bol\Retailer\Model\BulkCommissionRequest | 
 
@@ -93,7 +157,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Bol\Retailer\Model\BulkCommissionRequest**](../Model/BulkCommissionRequest.md)|  | [optional]
+ **body** | [**\Bol\Retailer\Model\BulkCommissionRequest**](../Model/BulkCommissionRequest.md)|  |
 
 ### Return type
 
@@ -101,12 +165,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/vnd.retailer.v9+json
- - **Accept**: application/vnd.retailer.v9+json
+ - **Content-Type**: application/vnd.retailer.v10+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

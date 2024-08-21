@@ -1,14 +1,13 @@
 # Bol\Retailer\ReturnsApi
 
-All URIs are relative to *https://api.bol.com*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createReturn**](ReturnsApi.md#createReturn) | **POST** /retailer/returns | Create a return
-[**getReturn**](ReturnsApi.md#getReturn) | **GET** /retailer/returns/{return-id} | Get a return by return id
-[**getReturns**](ReturnsApi.md#getReturns) | **GET** /retailer/returns | Get returns
-[**handleReturn**](ReturnsApi.md#handleReturn) | **PUT** /retailer/returns/{rma-id} | Handle a return by rma id
-
+[**createReturn**](ReturnsApi.md#createreturn) | **POST** /retailer/returns | Create a return
+[**getReturn**](ReturnsApi.md#getreturn) | **GET** /retailer/returns/{return-id} | Get a return by return id
+[**getReturns**](ReturnsApi.md#getreturns) | **GET** /retailer/returns | Get returns
+[**handleReturn**](ReturnsApi.md#handlereturn) | **PUT** /retailer/returns/{rma-id} | Handle a return by rma id
 
 # **createReturn**
 > \Bol\Retailer\Model\ProcessStatus createReturn($body)
@@ -21,11 +20,16 @@ Create a return, and automatically handle it with the provided handling result. 
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\ReturnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Bol\Retailer\Model\CreateReturnRequest(); // \Bol\Retailer\Model\CreateReturnRequest | 
 
@@ -42,7 +46,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Bol\Retailer\Model\CreateReturnRequest**](../Model/CreateReturnRequest.md)|  | [optional]
+ **body** | [**\Bol\Retailer\Model\CreateReturnRequest**](../Model/CreateReturnRequest.md)|  |
 
 ### Return type
 
@@ -50,12 +54,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/vnd.retailer.v9+json
+ - **Content-Type**: application/json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -70,11 +74,16 @@ Retrieve a return based on the return id.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\ReturnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $return_id = "return_id_example"; // string | Unique identifier for a return.
 
@@ -99,12 +108,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.retailer.v9+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -119,15 +128,20 @@ Get a paginated list of multi-item returns. Handled returns are sorted by date i
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\ReturnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $page = 1; // int | The page to get with a page size of 50.
 $handled = true; // bool | The status of the returns you wish to see, shows either handled or unhandled returns.
-$fulfilment_method = "FBR"; // string | The fulfilment method. Fulfilled by the retailer (FBR) or fulfilled by bol.com (FBB).
+$fulfilment_method = "fulfilment_method_example"; // string | The fulfilment method. Fulfilled by the retailer (FBR) or fulfilled by bol.com (FBB).
 
 try {
     $result = $apiInstance->getReturns($page, $handled, $fulfilment_method);
@@ -144,7 +158,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| The page to get with a page size of 50. | [optional] [default to 1]
  **handled** | **bool**| The status of the returns you wish to see, shows either handled or unhandled returns. | [optional]
- **fulfilment_method** | **string**| The fulfilment method. Fulfilled by the retailer (FBR) or fulfilled by bol.com (FBB). | [optional] [default to FBR]
+ **fulfilment_method** | **string**| The fulfilment method. Fulfilled by the retailer (FBR) or fulfilled by bol.com (FBB). | [optional]
 
 ### Return type
 
@@ -152,17 +166,17 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.retailer.v9+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **handleReturn**
-> \Bol\Retailer\Model\ProcessStatus handleReturn($rma_id, $body)
+> \Bol\Retailer\Model\ProcessStatus handleReturn($body, $rma_id)
 
 Handle a return by rma id
 
@@ -172,17 +186,22 @@ Allows the user to handle a return. This can be to either handle an open return,
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\ReturnsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
+$body = new \Bol\Retailer\Model\ReturnRequest(); // \Bol\Retailer\Model\ReturnRequest | 
 $rma_id = 789; // int | The RMA (Return Merchandise Authorization) identifier of the return.
-$body = new \Bol\Retailer\Model\ReturnRequest(); // \Bol\Retailer\Model\ReturnRequest | The handling result requested by the retailer.
 
 try {
-    $result = $apiInstance->handleReturn($rma_id, $body);
+    $result = $apiInstance->handleReturn($body, $rma_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReturnsApi->handleReturn: ', $e->getMessage(), PHP_EOL;
@@ -194,8 +213,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Bol\Retailer\Model\ReturnRequest**](../Model/ReturnRequest.md)|  |
  **rma_id** | **int**| The RMA (Return Merchandise Authorization) identifier of the return. |
- **body** | [**\Bol\Retailer\Model\ReturnRequest**](../Model/ReturnRequest.md)| The handling result requested by the retailer. | [optional]
 
 ### Return type
 
@@ -203,12 +222,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/vnd.retailer.v9+json
- - **Accept**: application/vnd.retailer.v9+json
+ - **Content-Type**: application/vnd.retailer.v10+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

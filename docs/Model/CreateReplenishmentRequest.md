@@ -10,6 +10,5 @@ Name | Type | Description | Notes
 **pickup_appointment** | [**\Bol\Retailer\Model\CreatePickupAppointment**](CreatePickupAppointment.md) |  | [optional] 
 **lines** | [**\Bol\Retailer\Model\CreateReplenishmentLine[]**](CreateReplenishmentLine.md) |  | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

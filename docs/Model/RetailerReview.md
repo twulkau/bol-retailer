@@ -9,6 +9,5 @@ Name | Type | Description | Notes
 **neutral_review_count** | **int** | The amount of neutral customer reviews during that rating method period. | 
 **negative_review_count** | **int** | The amount of negative customer reviews during that rating method period. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

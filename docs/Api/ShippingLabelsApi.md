@@ -1,13 +1,12 @@
 # Bol\Retailer\ShippingLabelsApi
 
-All URIs are relative to *https://api.bol.com*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getDeliveryOptions**](ShippingLabelsApi.md#getDeliveryOptions) | **POST** /retailer/shipping-labels/delivery-options | Get delivery options
-[**getShippingLabel**](ShippingLabelsApi.md#getShippingLabel) | **GET** /retailer/shipping-labels/{shipping-label-id} | Get a shipping label
-[**postShippingLabel**](ShippingLabelsApi.md#postShippingLabel) | **POST** /retailer/shipping-labels | Create a shipping label
-
+[**getDeliveryOptions**](ShippingLabelsApi.md#getdeliveryoptions) | **POST** /retailer/shipping-labels/delivery-options | Get delivery options
+[**getShippingLabel**](ShippingLabelsApi.md#getshippinglabel) | **GET** /retailer/shipping-labels/{shipping-label-id} | Get a shipping label
+[**postShippingLabel**](ShippingLabelsApi.md#postshippinglabel) | **POST** /retailer/shipping-labels | Create a shipping label
 
 # **getDeliveryOptions**
 > \Bol\Retailer\Model\DeliveryOptionsResponse getDeliveryOptions($body)
@@ -20,11 +19,16 @@ Retrieves all available delivery options based on the supplied configuration of 
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\ShippingLabelsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Bol\Retailer\Model\DeliveryOptionsRequest(); // \Bol\Retailer\Model\DeliveryOptionsRequest | 
 
@@ -41,7 +45,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Bol\Retailer\Model\DeliveryOptionsRequest**](../Model/DeliveryOptionsRequest.md)|  | [optional]
+ **body** | [**\Bol\Retailer\Model\DeliveryOptionsRequest**](../Model/DeliveryOptionsRequest.md)|  |
 
 ### Return type
 
@@ -49,17 +53,17 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/vnd.retailer.v9+json
- - **Accept**: application/vnd.retailer.v9+json
+ - **Content-Type**: application/vnd.retailer.v10+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getShippingLabel**
-> string[] getShippingLabel($shipping_label_id)
+> string getShippingLabel($shipping_label_id)
 
 Get a shipping label
 
@@ -69,11 +73,16 @@ Retrieves a shipping label by shipping label id. Metadata for the shipping label
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\ShippingLabelsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $shipping_label_id = "shipping_label_id_example"; // string | The shipping label id.
 
@@ -94,16 +103,16 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string[]**
+**string**
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.retailer.v9+pdf
+ - **Accept**: application/vnd.retailer.v10+pdf
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -118,11 +127,16 @@ Create a shipping label with a shipping label offer id retrieved from get delive
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\ShippingLabelsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Bol\Retailer\Model\ShippingLabelRequest(); // \Bol\Retailer\Model\ShippingLabelRequest | 
 
@@ -139,7 +153,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Bol\Retailer\Model\ShippingLabelRequest**](../Model/ShippingLabelRequest.md)|  | [optional]
+ **body** | [**\Bol\Retailer\Model\ShippingLabelRequest**](../Model/ShippingLabelRequest.md)|  |
 
 ### Return type
 
@@ -147,12 +161,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/vnd.retailer.v9+json
- - **Accept**: application/vnd.retailer.v9+json
+ - **Content-Type**: application/vnd.retailer.v10+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

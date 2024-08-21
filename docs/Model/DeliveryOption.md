@@ -13,6 +13,5 @@ Name | Type | Description | Notes
 **package_restrictions** | [**\Bol\Retailer\Model\PackageRestrictions**](PackageRestrictions.md) |  | 
 **handover_details** | [**\Bol\Retailer\Model\HandoverDetails**](HandoverDetails.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -12,6 +12,5 @@ Name | Type | Description | Notes
 **clip_url** | **string** | The URL on which an audio clip of the audio track has been made available. | [optional] 
 **clip_type** | **string** | The format in which the audio clip is available. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

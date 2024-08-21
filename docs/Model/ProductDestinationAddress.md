@@ -11,6 +11,5 @@ Name | Type | Description | Notes
 **attention_of** | **string** | Name of the person responsible for this replenishment. | 
 **house_number_extension** | **string** | The house number extension of the bol.com warehouse address. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

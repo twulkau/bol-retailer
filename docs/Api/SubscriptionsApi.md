@@ -1,36 +1,40 @@
 # Bol\Retailer\SubscriptionsApi
 
-All URIs are relative to *https://api.bol.com*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deletePushNotificationSubscription**](SubscriptionsApi.md#deletePushNotificationSubscription) | **DELETE** /retailer/subscriptions/{subscription-id} | Delete push notification subscription
-[**getPushNotificationSubscription**](SubscriptionsApi.md#getPushNotificationSubscription) | **GET** /retailer/subscriptions/{subscription-id} | Get push notification subscription by id
-[**getPushNotificationSubscriptions**](SubscriptionsApi.md#getPushNotificationSubscriptions) | **GET** /retailer/subscriptions | Get push notification subscriptions
-[**getSubscriptionKeys**](SubscriptionsApi.md#getSubscriptionKeys) | **GET** /retailer/subscriptions/signature-keys | Retrieve public keys for push notification signature validation.
-[**postPushNotificationSubscription**](SubscriptionsApi.md#postPushNotificationSubscription) | **POST** /retailer/subscriptions | Create push notification subscription
-[**postTestPushNotification**](SubscriptionsApi.md#postTestPushNotification) | **POST** /retailer/subscriptions/test/{subscription-id} | Send test push notification for subscriptions
-[**putPushNotificationSubscription**](SubscriptionsApi.md#putPushNotificationSubscription) | **PUT** /retailer/subscriptions/{subscription-id} | Update push notification subscription
-
+[**deletePushNotificationSubscription**](SubscriptionsApi.md#deletepushnotificationsubscription) | **DELETE** /retailer/subscriptions/{subscription-id} | Remove Event Notification Subscription
+[**getPushNotificationSubscription**](SubscriptionsApi.md#getpushnotificationsubscription) | **GET** /retailer/subscriptions/{subscription-id} | Retrieve Specific Event Notification Subscription (BETA)
+[**getPushNotificationSubscriptions**](SubscriptionsApi.md#getpushnotificationsubscriptions) | **GET** /retailer/subscriptions | Retrieve Event Notification Subscriptions (BETA)
+[**getSubscriptionKeys**](SubscriptionsApi.md#getsubscriptionkeys) | **GET** /retailer/subscriptions/signature-keys | Retrieve public keys for push notification signature validation.
+[**postPushNotificationSubscription**](SubscriptionsApi.md#postpushnotificationsubscription) | **POST** /retailer/subscriptions | Create Event Notification Subscription (BETA)
+[**postTestPushNotification**](SubscriptionsApi.md#posttestpushnotification) | **POST** /retailer/subscriptions/test/{subscription-id} | Send test push notification for subscriptions
+[**putPushNotificationSubscription**](SubscriptionsApi.md#putpushnotificationsubscription) | **PUT** /retailer/subscriptions/{subscription-id} | Update Event Notification Subscription (BETA)
 
 # **deletePushNotificationSubscription**
 > \Bol\Retailer\Model\ProcessStatus deletePushNotificationSubscription($subscription_id)
 
-Delete push notification subscription
+Remove Event Notification Subscription
 
-Delete a push notification subscription with the provided id.
+Deletes a specific event notification subscription associated with a retailer.
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\SubscriptionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
-$subscription_id = "subscription_id_example"; // string | A unique identifier for the subscription.
+$subscription_id = "subscription_id_example"; // string | The unique identifier assigned to each event notification subscription. This ID is used for tracking and managing each subscription.
 
 try {
     $result = $apiInstance->deletePushNotificationSubscription($subscription_id);
@@ -45,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscription_id** | **string**| A unique identifier for the subscription. |
+ **subscription_id** | **string**| The unique identifier assigned to each event notification subscription. This ID is used for tracking and managing each subscription. |
 
 ### Return type
 
@@ -53,33 +57,38 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/vnd.retailer.v9+json
- - **Accept**: application/vnd.retailer.v9+json
+ - **Content-Type**: Not defined
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPushNotificationSubscription**
 > \Bol\Retailer\Model\SubscriptionResponse getPushNotificationSubscription($subscription_id)
 
-Get push notification subscription by id
+Retrieve Specific Event Notification Subscription (BETA)
 
-Retrieve a configured and active push notification subscription with the provided id.
+Fetches the details of a specific event notification subscription for a retailer. The details include the types of events and the destination, which can either be a URL (for WEBHOOK) or a topic name (for GCP_PUBSUB).
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\SubscriptionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
-$subscription_id = "subscription_id_example"; // string | A unique identifier for the subscription.
+$subscription_id = "subscription_id_example"; // string | The unique identifier assigned to each event notification subscription. This ID is used for tracking and managing each subscription.
 
 try {
     $result = $apiInstance->getPushNotificationSubscription($subscription_id);
@@ -94,7 +103,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscription_id** | **string**| A unique identifier for the subscription. |
+ **subscription_id** | **string**| The unique identifier assigned to each event notification subscription. This ID is used for tracking and managing each subscription. |
 
 ### Return type
 
@@ -102,31 +111,36 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.retailer.v9+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPushNotificationSubscriptions**
 > \Bol\Retailer\Model\SubscriptionsResponse getPushNotificationSubscriptions()
 
-Get push notification subscriptions
+Retrieve Event Notification Subscriptions (BETA)
 
-Retrieve a list of all configured and active push notification subscriptions.
+Retrieves all event notification subscriptions for a given retailer. Each subscription may have different types of events and a destination, which could either be a URL (for WEBHOOK) or a topic name (for GCP_PUBSUB).
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\SubscriptionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 
 try {
@@ -147,12 +161,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.retailer.v9+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -167,11 +181,16 @@ Retrieve a list of public keys that should be used to validate the signature hea
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\SubscriptionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 
 try {
@@ -192,33 +211,38 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.retailer.v9+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postPushNotificationSubscription**
 > \Bol\Retailer\Model\ProcessStatus postPushNotificationSubscription($body)
 
-Create push notification subscription
+Create Event Notification Subscription (BETA)
 
-Create a push notification subscription for one (or more) of the available resources. The configured URL has to support https scheme.
+Creates a new event notification subscription for a retailer. The subscription can be set up for one or more types of events and the destination can either be a URL (for WEBHOOK) or a topic name (for GCP_PUBSUB).
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\SubscriptionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
-$body = new \Bol\Retailer\Model\CreateSubscriptionRequest(); // \Bol\Retailer\Model\CreateSubscriptionRequest | 
+$body = new \Bol\Retailer\Model\SubscriptionRequest(); // \Bol\Retailer\Model\SubscriptionRequest | 
 
 try {
     $result = $apiInstance->postPushNotificationSubscription($body);
@@ -233,7 +257,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Bol\Retailer\Model\CreateSubscriptionRequest**](../Model/CreateSubscriptionRequest.md)|  | [optional]
+ **body** | [**\Bol\Retailer\Model\SubscriptionRequest**](../Model/SubscriptionRequest.md)|  |
 
 ### Return type
 
@@ -241,12 +265,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/vnd.retailer.v9+json
- - **Accept**: application/vnd.retailer.v9+json
+ - **Content-Type**: application/vnd.retailer.v10+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -261,13 +285,18 @@ Send a test push notification to all subscriptions for the provided event.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\SubscriptionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
-$subscription_id = "subscription_id_example"; // string | A unique identifier for the subscription.
+$subscription_id = "subscription_id_example"; // string | The unique identifier assigned to each event notification subscription. This ID is used for tracking and managing each subscription.
 
 try {
     $result = $apiInstance->postTestPushNotification($subscription_id);
@@ -282,7 +311,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscription_id** | **string**| A unique identifier for the subscription. |
+ **subscription_id** | **string**| The unique identifier assigned to each event notification subscription. This ID is used for tracking and managing each subscription. |
 
 ### Return type
 
@@ -290,37 +319,42 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/vnd.retailer.v9+json
- - **Accept**: application/vnd.retailer.v9+json
+ - **Content-Type**: Not defined
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **putPushNotificationSubscription**
-> \Bol\Retailer\Model\ProcessStatus putPushNotificationSubscription($subscription_id, $body)
+> \Bol\Retailer\Model\ProcessStatus putPushNotificationSubscription($body, $subscription_id)
 
-Update push notification subscription
+Update Event Notification Subscription (BETA)
 
-Update an existing push notification subscription with the supplied id. The configured URL has to support https scheme.
+Updates the details of a specific event notification subscription for a retailer. The updates can be made to the types of events and/or the destination, which can either be a URL (for WEBHOOK) or a topic name (for GCP_PUBSUB).
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\SubscriptionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
-$subscription_id = "subscription_id_example"; // string | A unique identifier for the subscription.
-$body = new \Bol\Retailer\Model\UpdateSubscriptionRequest(); // \Bol\Retailer\Model\UpdateSubscriptionRequest | 
+$body = new \Bol\Retailer\Model\SubscriptionRequest(); // \Bol\Retailer\Model\SubscriptionRequest | 
+$subscription_id = "subscription_id_example"; // string | The unique identifier assigned to each event notification subscription. This ID is used for tracking and managing each subscription.
 
 try {
-    $result = $apiInstance->putPushNotificationSubscription($subscription_id, $body);
+    $result = $apiInstance->putPushNotificationSubscription($body, $subscription_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SubscriptionsApi->putPushNotificationSubscription: ', $e->getMessage(), PHP_EOL;
@@ -332,8 +366,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscription_id** | **string**| A unique identifier for the subscription. |
- **body** | [**\Bol\Retailer\Model\UpdateSubscriptionRequest**](../Model/UpdateSubscriptionRequest.md)|  | [optional]
+ **body** | [**\Bol\Retailer\Model\SubscriptionRequest**](../Model/SubscriptionRequest.md)|  |
+ **subscription_id** | **string**| The unique identifier assigned to each event notification subscription. This ID is used for tracking and managing each subscription. |
 
 ### Return type
 
@@ -341,12 +375,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/vnd.retailer.v9+json
- - **Accept**: application/vnd.retailer.v9+json
+ - **Content-Type**: application/vnd.retailer.v10+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

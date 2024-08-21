@@ -9,6 +9,5 @@ Name | Type | Description | Notes
 **value** | **float** | The score for this measurement (denominator divided by the numerator). | 
 **distance_to_norm** | **float** | The difference between the score and the bol.com service norm. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

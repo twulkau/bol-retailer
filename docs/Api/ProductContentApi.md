@@ -1,14 +1,13 @@
 # Bol\Retailer\ProductContentApi
 
-All URIs are relative to *https://api.bol.com*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCatalogProduct**](ProductContentApi.md#getCatalogProduct) | **GET** /retailer/content/catalog-products/{ean} | Get catalog product details by EAN
-[**getChunkRecommendations**](ProductContentApi.md#getChunkRecommendations) | **POST** /retailer/content/chunk-recommendations | Get chunk recommendations
-[**getUploadReport**](ProductContentApi.md#getUploadReport) | **GET** /retailer/content/upload-report/{upload-id} | Get an upload report by upload id
-[**postProductContent**](ProductContentApi.md#postProductContent) | **POST** /retailer/content/products | Create content for a product
-
+[**getCatalogProduct**](ProductContentApi.md#getcatalogproduct) | **GET** /retailer/content/catalog-products/{ean} | Get catalog product details by EAN
+[**getChunkRecommendations**](ProductContentApi.md#getchunkrecommendations) | **POST** /retailer/content/chunk-recommendations | Get chunk recommendations
+[**getUploadReport**](ProductContentApi.md#getuploadreport) | **GET** /retailer/content/upload-report/{upload-id} | Get an upload report by upload id
+[**postProductContent**](ProductContentApi.md#postproductcontent) | **POST** /retailer/content/products | Create content for a product
 
 # **getCatalogProduct**
 > \Bol\Retailer\Model\CatalogProduct getCatalogProduct($ean, $accept_language)
@@ -21,14 +20,19 @@ Gets the details of a catalog product by means of its EAN.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\ProductContentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $ean = "ean_example"; // string | The EAN number associated with this product.
-$accept_language = "nl"; // string | The language in which the catalog product details will be retrieved.
+$accept_language = "accept_language_example"; // string | The language in which the catalog product details will be retrieved.
 
 try {
     $result = $apiInstance->getCatalogProduct($ean, $accept_language);
@@ -44,7 +48,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ean** | **string**| The EAN number associated with this product. |
- **accept_language** | **string**| The language in which the catalog product details will be retrieved. | [optional] [default to nl]
+ **accept_language** | **string**| The language in which the catalog product details will be retrieved. | [optional]
 
 ### Return type
 
@@ -52,12 +56,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.retailer.v9+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -72,11 +76,16 @@ Gets a selected number of recommendations for a product.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\ProductContentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Bol\Retailer\Model\ChunkRecommendationsRequest(); // \Bol\Retailer\Model\ChunkRecommendationsRequest | 
 
@@ -93,7 +102,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Bol\Retailer\Model\ChunkRecommendationsRequest**](../Model/ChunkRecommendationsRequest.md)|  | [optional]
+ **body** | [**\Bol\Retailer\Model\ChunkRecommendationsRequest**](../Model/ChunkRecommendationsRequest.md)|  |
 
 ### Return type
 
@@ -101,12 +110,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/vnd.retailer.v9+json
- - **Accept**: application/vnd.retailer.v9+json
+ - **Content-Type**: application/vnd.retailer.v10+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -121,11 +130,16 @@ Gets the upload report of the product content submitted by upload id.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\ProductContentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $upload_id = "upload_id_example"; // string | The identifier of the upload report.
 
@@ -150,12 +164,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.retailer.v9+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -170,11 +184,16 @@ Create content for an existing product.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\ProductContentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Bol\Retailer\Model\CreateProductContentSingleRequest(); // \Bol\Retailer\Model\CreateProductContentSingleRequest | 
 
@@ -191,7 +210,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Bol\Retailer\Model\CreateProductContentSingleRequest**](../Model/CreateProductContentSingleRequest.md)|  | [optional]
+ **body** | [**\Bol\Retailer\Model\CreateProductContentSingleRequest**](../Model/CreateProductContentSingleRequest.md)|  |
 
 ### Return type
 
@@ -199,12 +218,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/vnd.retailer.v9+json
- - **Accept**: application/vnd.retailer.v9+json
+ - **Content-Type**: application/vnd.retailer.v10+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

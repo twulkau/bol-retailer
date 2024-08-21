@@ -8,6 +8,5 @@ Name | Type | Description | Notes
 **transport_state** | **string** | The current state of the transport for this load carrier. | 
 **transport_state_update_date_time** | [**\DateTime**](\DateTime.md) | The date and time in ISO 8601 format when the latest update for this transport was received. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

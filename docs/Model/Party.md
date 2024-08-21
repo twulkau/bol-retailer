@@ -7,6 +7,5 @@ Name | Type | Description | Notes
 **type** | **string** | The type of party involved for this product. | 
 **role** | **string** | The role of the party involved for this product. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

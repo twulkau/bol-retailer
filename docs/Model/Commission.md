@@ -12,6 +12,5 @@ Name | Type | Description | Notes
 **total_cost_without_reduction** | **float** | The total commission for selling this product at bol.com without reductions including VAT. | [optional] 
 **reductions** | [**\Bol\Retailer\Model\Reduction[]**](Reduction.md) |  | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -10,6 +10,5 @@ Name | Type | Description | Notes
 **periods** | [**\Bol\Retailer\Model\TotalPeriod[]**](TotalPeriod.md) |  | 
 **related_search_terms** | [**\Bol\Retailer\Model\RelatedSearchTerm[]**](RelatedSearchTerm.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **house_number** | **string** | The house number. | [optional] 
 **house_number_extension** | **string** | The extension on the house number. | [optional] 
 **extra_address_information** | **string** | Additional information related to the address that helps in delivering the package. | [optional] 
-**zip_code** | **string** | The ZIP code in &#39;1234AB&#39; format for NL orders and &#39;0000&#39; format for BE orders. | [optional] 
+**zip_code** | **string** | The ZIP code in &#x27;1234AB&#x27; format for NL orders and &#x27;0000&#x27; format for BE orders. | [optional] 
 **city** | **string** | The name of the city. | [optional] 
 **country_code** | **string** | The country code. | [optional] 
 **email** | **string** | A scrambled email address that can be used to contact the customer. | [optional] 
@@ -18,6 +18,5 @@ Name | Type | Description | Notes
 **company** | **string** | The company name. | [optional] 
 **vat_number** | **string** | The Value Added Tax (VAT) / BTW number for business sellers situated in the Netherlands. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

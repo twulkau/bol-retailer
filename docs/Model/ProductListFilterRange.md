@@ -7,6 +7,5 @@ Name | Type | Description | Notes
 **min** | **float** | The minimum value for the range that can be used to filter the products. | 
 **max** | **float** | The maximum value for the range that can be used to filter the products. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

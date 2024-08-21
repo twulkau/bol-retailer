@@ -11,6 +11,5 @@ Name | Type | Description | Notes
 **quantity_with_graded_state** | **int** | The quantity within this shipment line that has a graded (unsalable) state. | 
 **quantity_with_regular_state** | **int** | The quantity within this shipment line that has a regular (salable) state. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -1,13 +1,12 @@
 # Bol\Retailer\PromotionsApi
 
-All URIs are relative to *https://api.bol.com*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getProducts**](PromotionsApi.md#getProducts) | **GET** /retailer/promotions/{promotion-id}/products | Get a list of products
-[**getPromotion**](PromotionsApi.md#getPromotion) | **GET** /retailer/promotions/{promotion-id} | Get a promotion by promotion id
-[**getPromotions**](PromotionsApi.md#getPromotions) | **GET** /retailer/promotions | Get a list of promotions
-
+[**getProducts**](PromotionsApi.md#getproducts) | **GET** /retailer/promotions/{promotion-id}/products | Get a list of products
+[**getPromotion**](PromotionsApi.md#getpromotion) | **GET** /retailer/promotions/{promotion-id} | Get a promotion by promotion id
+[**getPromotions**](PromotionsApi.md#getpromotions) | **GET** /retailer/promotions | Get a list of promotions
 
 # **getProducts**
 > \Bol\Retailer\Model\Products getProducts($promotion_id, $page)
@@ -20,11 +19,16 @@ Gets a paginated list of all products that are present within a promotion.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\PromotionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $promotion_id = "promotion_id_example"; // string | The identifier of the promotion.
 $page = 1; // int | The requested page number with a page size of 50 items.
@@ -51,12 +55,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.retailer.v9+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -71,11 +75,16 @@ Gets the details of a promotion.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\PromotionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $promotion_id = "promotion_id_example"; // string | The identifier of the promotion.
 
@@ -100,12 +109,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.retailer.v9+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -120,13 +129,18 @@ Gets a paginated list of all promotions for a retailer.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: OAuth2
+    $config = Bol\Retailer\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Bol\Retailer\Api\PromotionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
-$promotion_type = array("promotion_type_example"); // string[] | The type(s) of promotion to be retrieved.
+$promotion_type = "promotion_type_example"; // string | The type(s) of promotion to be retrieved.
 $page = 1; // int | The requested page number with a page size of 50 items.
 
 try {
@@ -142,7 +156,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **promotion_type** | [**string[]**](../Model/string.md)| The type(s) of promotion to be retrieved. |
+ **promotion_type** | **string**| The type(s) of promotion to be retrieved. |
  **page** | **int**| The requested page number with a page size of 50 items. | [optional] [default to 1]
 
 ### Return type
@@ -151,12 +165,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.retailer.v9+json
+ - **Accept**: application/vnd.retailer.v10+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
