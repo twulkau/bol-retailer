@@ -168,8 +168,8 @@ class ReducedInvalidReplenishmentLine implements ModelInterface, ArrayAccess
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_FBB_PRODUCT
-            self::TYPE_EAN_INVENTORY_RELATION
+            self::TYPE_FBB_PRODUCT,
+            self::TYPE_EAN_INVENTORY_RELATION,
         ];
     }
 
