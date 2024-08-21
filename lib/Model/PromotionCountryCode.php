@@ -168,8 +168,8 @@ class PromotionCountryCode implements ModelInterface, ArrayAccess
     public function getCountryCodeAllowableValues()
     {
         return [
-            self::COUNTRY_CODE_NL
-            self::COUNTRY_CODE_BE
+            self::COUNTRY_CODE_NL,
+            self::COUNTRY_CODE_BE,
         ];
     }
 
