@@ -184,18 +184,18 @@ class OrderItemCancellation implements ModelInterface, ArrayAccess
     public function getReasonCodeAllowableValues()
     {
         return [
-            self::REASON_CODE_OUT_OF_STOCK
-            self::REASON_CODE_REQUESTED_BY_CUSTOMER
-            self::REASON_CODE_BAD_CONDITION
-            self::REASON_CODE_HIGHER_SHIPCOST
-            self::REASON_CODE_INCORRECT_PRICE
-            self::REASON_CODE_NOT_AVAIL_IN_TIME
-            self::REASON_CODE_NO_BOL_GUARANTEE
-            self::REASON_CODE_ORDERED_TWICE
-            self::REASON_CODE_RETAIN_ITEM
-            self::REASON_CODE_TECH_ISSUE
-            self::REASON_CODE_UNFINDABLE_ITEM
-            self::REASON_CODE_OTHER
+            self::REASON_CODE_OUT_OF_STOCK,
+            self::REASON_CODE_REQUESTED_BY_CUSTOMER,
+            self::REASON_CODE_BAD_CONDITION,
+            self::REASON_CODE_HIGHER_SHIPCOST,
+            self::REASON_CODE_INCORRECT_PRICE,
+            self::REASON_CODE_NOT_AVAIL_IN_TIME,
+            self::REASON_CODE_NO_BOL_GUARANTEE,
+            self::REASON_CODE_ORDERED_TWICE,
+            self::REASON_CODE_RETAIN_ITEM,
+            self::REASON_CODE_TECH_ISSUE,
+            self::REASON_CODE_UNFINDABLE_ITEM,
+            self::REASON_CODE_OTHER,
         ];
     }
 
